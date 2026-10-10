@@ -6,8 +6,17 @@ import styles from "./page.module.css";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
+  const [removedProducts, setRemovedProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+
+  const handleRemove = (id) => {
+    const product = products.find((p) => p.id === id);
+    if (!product) return;
+
+    setProducts((prev) => prev.filter((p) => p.id !== id));
+    setRemovedProducts((prev) => [...prev, product]);
+  };
 
   useEffect(() => {
     fetch("https://dummyjson.com/products?limit=20")
@@ -35,7 +44,11 @@ export default function Home() {
       <h1>Products</h1>
       <ul className={styles.list}>
         {products.map((product) => (
-          <ProductItem key={product.id} product={product} />
+          <ProductItem
+            key={product.id}
+            product={product}
+            onRemove={handleRemove}
+          />
         ))}
       </ul>
     </main>
