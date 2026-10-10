@@ -39,7 +39,7 @@ export default function Home() {
     return <p>Error: {error}</p>;
   }
 
-  return (
+    return (
     <main className={styles.main}>
       <h1>Products</h1>
       <ul className={styles.list}>
@@ -51,6 +51,17 @@ export default function Home() {
           />
         ))}
       </ul>
+
+      <h2>Removed products</h2>
+      {removedProducts.length === 0 ? (
+        <p>No removed products yet.</p>
+      ) : (
+        <ul className={styles.list}>
+          {removedProducts.map((product) => (
+            <ProductItem key={product.id} product={product} />
+          ))}
+        </ul>
+      )}
     </main>
   );
 }
