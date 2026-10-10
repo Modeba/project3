@@ -52,15 +52,15 @@ export default function Home() {
         ))}
       </ul>
 
-      <h2>Removed products</h2>
-      {removedProducts.length === 0 ? (
-        <p>No removed products yet.</p>
-      ) : (
-        <ul className={styles.list}>
-          {removedProducts.map((product) => (
-            <ProductItem key={product.id} product={product} />
-          ))}
-        </ul>
+      {removedProducts.length > 0 && (
+        <>
+          <h2>Removed products</h2>
+          <ul className={styles.list}>
+            {removedProducts.map((product) => (
+              <ProductItem key={product.id} product={product} />
+            ))}
+          </ul>
+        </>
       )}
     </main>
   );

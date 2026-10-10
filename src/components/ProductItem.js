@@ -11,14 +11,16 @@ export default function ProductItem({ product, onRemove }) {
         height={80}
       />
       
-      <button
-        type="button"
-        className={styles.removeButton}
-        onClick={() => onRemove(product.id)}
-        aria-label={`Remove ${product.title}`}
-      >
-        ✕
-      </button>
+{onRemove && (
+  <button
+    type="button"
+    className={styles.removeButton}
+    onClick={() => onRemove(product.id)}
+    aria-label={`Remove ${product.title}`}
+  >
+    ✕
+  </button>
+)}
 
       <div className={styles.info}>
         <h2 className={styles.title}>{product.title}</h2>
