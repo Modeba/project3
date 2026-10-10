@@ -9,7 +9,7 @@ export default function Home() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch("https://dummyjson.com/products")
+    fetch("https://dummyjson.com/products?limit=20")
       .then((res) => {
         if (!res.ok) {
           throw new Error("Failed to fetch products");
