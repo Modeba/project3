@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ProductItem from "../components/ProductItem";
+import styles from "./page.module.css";
 
 export default function Home() {
   const [products, setProducts] = useState([]);
@@ -30,9 +31,9 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main className={styles.main}>
       <h1>Products</h1>
-      <ul>
+      <ul className={styles.list}>
         {products.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}

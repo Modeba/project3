@@ -1,0 +1,27 @@
+.item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px;
+  border: 1px solid #7d7c7c;
+  border-radius: 8px;
+  background: #000000;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  flex-shrink: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.price {
+  margin: 4px 0 0;
+  font-weight: bold;
+}
